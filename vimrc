@@ -13,6 +13,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Javascript
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+set smartindent
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -32,7 +34,7 @@ let g:pymode_doc = 1
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_checker = "pyflakes"
 let g:pymode_lint_write = 1
 let g:pymode_virtualenv = 1
 let g:pymode_breakpoint = 1
