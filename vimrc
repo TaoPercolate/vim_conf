@@ -12,6 +12,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+"Common functionalities
+Bundle "sudar/comments.vim"
+
 " Javascript
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 set smartindent
