@@ -3,6 +3,16 @@ set number
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Commenting blocks of code.
+autocmd FileType c,cpp,java,scala,js let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>'"'
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -13,7 +23,10 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "Common functionalities
-Bundle "sudar/comments.vim"
+Plugin 'Lokaltog/vim-easymotion'
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap s <Plug>(easymotion-s2)
+
 
 " Javascript
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
@@ -21,6 +34,9 @@ set smartindent
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
 Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+map <c-f> :call JsBeautify()<cr>
 
 
 Bundle 'Raimondi/delimitMate'
