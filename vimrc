@@ -23,6 +23,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 "Common functionalities
+Plugin 'tomtom/tcomment_vim'
 Plugin 'Lokaltog/vim-easymotion'
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 nmap s <Plug>(easymotion-s2)
